@@ -43,6 +43,13 @@ public:
         }
     }
 
+    void prepend(int val)
+    {
+        Node* newNode = new Node(val);
+        newNode->next = head;
+        head = newNode;
+    }
+
     void display()
     {
         Node* temp = head;
@@ -64,8 +71,9 @@ int main()
         LL.append(i);
         i++;
     }
-
+    LL.prepend(15);
     LL.display();
+    
     
     
     return 0;
