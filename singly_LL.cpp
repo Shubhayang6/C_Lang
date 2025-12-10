@@ -20,7 +20,7 @@ private:
     Node *head;
 
 public:
-    LinkedList()
+    LinkedList() // constructor
     {
         head = nullptr;
     }
@@ -28,7 +28,7 @@ public:
     void append(int val)
     {
         Node *newNode = new Node(val);
-        if (head == nullptr)
+        if (head == nullptr) // if list is empty
         {
             head = newNode;
         }

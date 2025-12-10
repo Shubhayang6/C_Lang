@@ -1,0 +1,4 @@
+LinkedList() // constructor
+    // {
+    //     head = nullptr;
+    // }
