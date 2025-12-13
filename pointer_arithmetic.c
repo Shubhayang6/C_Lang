@@ -1,26 +1,29 @@
 #include <stdio.h>
 
-// Size of struct == 64 + sizeof(int)
-struct Person
+// Array Traversal
+
+int arr[4] = {10, 20, 30, 40};
+int *p = arr;
+
+void safe_iter()
 {
-    char name[64];
-    int age;
-};
 
-// Pointer is just an INT value that has the address in it :)
-int main(int argc, char *argv[])
-{
-    struct Person people[100];
-
-    struct Person *p_Person = people; // p_Person points to people[0]
-
-    int i = 0;
-    for (i = 0; i < 100; i++)
+    for (int *p = arr; p < arr + 4; p++)
     {
-        p_Person->age = 0;
-        p_Person->name[0] = 0;
-        p_Person += 1;
+        printf("%d\n", *p);
     }
+}
 
-    return 0;
+int main()
+{
+
+    printf("%d\n", *(p));     // returns the first element of the array
+    printf("%d\n", *(p + 1)); // prints 20
+    printf("%d\n", *(p + 2)); // prints 30
+    printf("%d\n", *(p + 3)); // prints 40
+    printf("%d\n", *(p + 4)); // prints garbage - UB
+
+    // calling safe_iter:
+    printf("Safe Iter function call...\n");
+    safe_iter();
 }
